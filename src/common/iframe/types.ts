@@ -16,4 +16,5 @@ export type IframeOptions = {
     withIframePlaceholder?: boolean | HTMLElement;
     payload?: {[key: string]: string};
     className?: string;
+    sandboxOptions?: string[];
 };

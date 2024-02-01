@@ -1,5 +1,5 @@
 {
-    "name": "amazon-quicksight-embedding-sdk",
+    "name": "@smuthyam/amazon-quicksight-embedding-sdk",
     "version": "2.6.0",
     "description": "JS SDK for embedding Amazon QuickSight",
     "keywords": [
