@@ -31,7 +31,7 @@ export class Iframe {
             withIframePlaceholder,
             payload,
             className,
-            sandboxOptions,
+            sandboxAttributes,
         } = options;
 
         this.width = width;
@@ -53,7 +53,7 @@ export class Iframe {
             this.createIframePlaceholder(withIframePlaceholder);
         }
 
-        this.iframe = this.createIframe(sandboxOptions);
+        this.iframe = this.createIframe(sandboxAttributes);
         this.iframe.addEventListener('load', this.onLoadLocal);
     }
 
@@ -83,7 +83,7 @@ export class Iframe {
         this.container.appendChild(this.iframePlaceholder);
     };
 
-    private createIframe = (sandboxOptions?: string[]) => {
+    private createIframe = (sandboxAttributes?: string[]) => {
         const iframe = document.createElement('iframe') as EmbeddingIFrameElement;
         iframe.className = this.classNames.join(' ').trim();
         iframe.id = this.iframeName;
@@ -107,8 +107,8 @@ export class Iframe {
             iframe.style.position = 'absolute';
         }
 
-        if (sandboxOptions?.length) {
-            iframe.sandbox.add(...sandboxOptions);
+        if (sandboxAttributes?.length) {
+            iframe.sandbox.add(sandboxAttributes.join(', '));
         }
 
         this.container.appendChild(iframe);
